@@ -1,0 +1,10 @@
+$('.errore').hide()
+<% if @message.errors.present? %>
+
+  <% @message.errors.full_messages.each do |error| %>
+    $('#form').prepend("<div class='errore'><%= error %></div>")
+  <% end %>
+
+<% else %>
+$('#messages').html("<%= escape_javascript(render partial: 'messages', locals: { messages: Message.all } ) %>")
+<% end %>
