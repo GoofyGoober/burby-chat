@@ -6,18 +6,20 @@
     = action_cable_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %meta(name="viewport" content="width=device-width,initial-scale=1")
+
   %body
     - url = url_for(action: 'ask_new_message', controller: 'messages')
     #notifications{data:{url: url}}
     .container
       .row(style="margin-top:20px; margin-bottom:20px")
       
-        .col-sm-8
+        .col-xs-8
           
           %strong Caro AleBurbeTeScrivo
           
-        .col-sm-4
-          .pull-right= link_to 'Esci - Cambia nome', 'users/new'
+        .col-xs-4
+          .pull-right= link_to 'Esci', 'users/new'
       
       .row
-        = yield
+        .col-sm-12= yield

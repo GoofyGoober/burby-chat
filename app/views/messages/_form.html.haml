@@ -1,4 +1,4 @@
-= simple_form_for(@message) do |f|
+= simple_form_for(@message, remote: true) do |f|
   = f.input :content, label: false
   .form-actions
     = f.button :submit, 'Invia', class: 'btn btn-block'

@@ -3,9 +3,9 @@ class MessagesController < ApplicationController
 
   def ask_new_message
     @messages = Message.all
-    id = @messages.last.id
+    id = @messages.first.id
     if id == params[:last_message_id].to_i
-      render plain: 'no'      
+      head :ok      
     else
       render 'replace_content', format: :js, layout: false
     end
