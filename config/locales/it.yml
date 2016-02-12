@@ -19,6 +19,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+it:
   hello: "Hello world"
-  profanity: "Profanity found. This prevented the record from saving."
+  activerecord:
+    attributes:
+      message:
+        content: "Il messaggio"
+  profanity: "Burby ti vede"

@@ -1,9 +1,13 @@
-#form= render 'form'
-%br
-%table.table
-  %tbody#messages
-    = render 'messages', messages: @messages
+#form(style="width: 100%")
+  = render 'form'
+  %tbody
+    #messages
+      = render 'messages', messages: @messages
 
 %br
 
 
+:css
+  td {
+    border: none
+  }

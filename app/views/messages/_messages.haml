@@ -1,11 +1,13 @@
-- messages.each do |message|
-  %tr
-    %td= ""
-  %tr.message{data: {id:message.id}}
-    %td
-      = message.user.name if message.user.present?
-      dice
-
-  %tr
-    %td
-      %strong= message.content
+- messages.last(10).each do |message|  
+  - style = "margin-bottom: 1px;"
+  - if message.user.present? and message.user.id == session[:user]["id"].to_i
+    - style += "background-color: #efefef" 
+    
+  .message{data: {id:message.id}}
+    .panel.panel-default{style: style}
+      
+      .panel-body
+        - if message.user.present?
+          = message.user.name 
+          %em= "dice"
+          %strong= message.content

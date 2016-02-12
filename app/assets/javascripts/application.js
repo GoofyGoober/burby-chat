@@ -17,13 +17,59 @@
 
 function webNotificationPoll(url) {
   console.log(url)
-  var id_last = $('.message').first().data('id')
+  var id_last = $('.message').last().data('id')
   $.ajax({
     url : url, 
     data: "last_message_id="+id_last
   });
 }
+
+function isMobile(){
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    return true
+  } else{
+    return false
+  }
+}
+
 $('document').ready(function(){
   var url = $('#notifications').data('url');
-  setInterval(function(){webNotificationPoll(url)}, 1000);
+  setInterval(function(){webNotificationPoll(url)}, 5000);
+  $('textarea').focus()
+  $('textarea').keydown(function(event){
+    if (event.keyCode == 13) {
+        $('form').submit()
+        
+        if (isMobile()) {
+          $('textarea').blur()// some code..
+          ion.sound.play("urino");
+        }
+        
+        return false;
+    }
+  })
+  $('.btn-primary').click(function(event){
+    
+    if (isMobile()) {
+      ion.sound.play("urino");
+    }
+  })
+  andareGiu()
 })
+
+function andareGiu(){
+  //$("html, body").animate({ scrollTop: $(document).height() }, 0);
+  scroll(0,document.body.scrollHeight);
+}
+
+
+ion.sound({
+  sounds: [
+      {
+          name: "urino"
+      }
+  ],
+  volume: 0.5,
+  path: "",
+  preload: true
+});
