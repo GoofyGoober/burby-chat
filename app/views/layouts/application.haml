@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %title BurbyChat
+    = csrf_meta_tags
+    = action_cable_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  %body
+    - url = url_for(action: 'ask_new_message', controller: 'messages')
+    #notifications{data:{url: url}}
+    .container
+      .row(style="margin-top:20px; margin-bottom:20px")
+      
+        .col-sm-8
+          
+          %strong Caro AleBurbeTeScrivo
+          
+        .col-sm-4
+          .pull-right= link_to 'Esci - Cambia nome', 'users/new'
+      
+      .row
+        = yield

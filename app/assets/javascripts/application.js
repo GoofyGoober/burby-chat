@@ -12,5 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
+
+function webNotificationPoll(url) {
+  console.log(url)
+  var id_last = $('.message').first().data('id')
+  $.ajax({
+    url : url, 
+    data: "last_message_id="+id_last
+  });
+}
+$('document').ready(function(){
+  var url = $('#notifications').data('url');
+  setInterval(function(){webNotificationPoll(url)}, 1000);
+})

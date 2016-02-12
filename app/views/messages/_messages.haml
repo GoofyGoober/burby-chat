@@ -1,0 +1,11 @@
+- messages.order('created_at DESC').each do |message|
+  %tr
+    %td= ""
+  %tr.message{data: {id:message.id}}
+    %td
+      = message.user.name if message.user.present?
+      dice
+
+  %tr
+    %td
+      %strong= message.content

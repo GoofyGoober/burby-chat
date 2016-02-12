@@ -7,13 +7,13 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
-gem 'turbolinks'
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 3.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 
-gem "haml-rails"
+gem 'haml-rails'
+gem 'simple_form'
+gem 'bootstrap-sass'
+gem 'rails-i18n', '~> 5.0.0.beta1'

@@ -1,0 +1,4 @@
+= simple_form_for(@user) do |f|
+  = f.error_notification
+  = f.input :name, as: :string, label: false, placeholder: 'Scegli un nome'
+  = f.button :submit, 'Entra'
