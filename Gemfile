@@ -17,4 +17,5 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'rails-i18n', '~> 5.0.0.beta1'
-gem "NoNo", github: 'GoofyGoober/nono'
+gem 'obscenity', github: 'GoofyGoober/obscenity'
+

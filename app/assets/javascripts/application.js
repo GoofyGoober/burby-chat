@@ -33,6 +33,12 @@ function isMobile(){
 }
 
 $('document').ready(function(){
+  if ($('#notifications').length > 0) {
+    setupChat()
+  }
+})
+
+function setupChat(){
   var url = $('#notifications').data('url');
   setInterval(function(){webNotificationPoll(url)}, 5000);
   $('textarea').focus()
@@ -55,7 +61,7 @@ $('document').ready(function(){
     }
   })
   andareGiu()
-})
+}
 
 function andareGiu(){
   //$("html, body").animate({ scrollTop: $(document).height() }, 0);

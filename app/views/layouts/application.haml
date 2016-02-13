@@ -10,8 +10,8 @@
 
   %body
     - url = url_for(action: 'ask_new_message', controller: 'messages')
-    %audio{src: url_for('urino.mp3'), volume:"60"}
-    #notifications{data:{url: url}}
+    - if controller_name == "messages"
+      #notifications{data:{url: url}}
     .row(style="margin: 0px 20px; position: fixed; top: 0;z-index:100; width: 100%; background-color: #fff; padding:0; margin:0; padding-top: 20px; padding-bottom: 20px; padding-right: 20px; border-bottom: 1px solid #ccc")
       
       .col-xs-8
@@ -26,7 +26,5 @@
         - if controller_name == "messages"
           .pull-right= link_to 'Esci', 'users/new'
     .container-fluid
-
-      
       .row
         .col-sm-12= yield
