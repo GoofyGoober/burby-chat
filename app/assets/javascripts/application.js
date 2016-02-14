@@ -54,12 +54,7 @@ function setupChat(){
         return false;
     }
   })
-  $('.btn-primary').click(function(event){
-    
-    if (isMobile()) {
-      ion.sound.play("urino");
-    }
-  })
+
   andareGiu()
 }
 
@@ -68,14 +63,3 @@ function andareGiu(){
   scroll(0,document.body.scrollHeight);
 }
 
-
-ion.sound({
-  sounds: [
-      {
-          name: "urino"
-      }
-  ],
-  volume: 0.5,
-  path: "",
-  preload: true
-});

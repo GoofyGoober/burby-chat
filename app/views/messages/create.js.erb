@@ -1,5 +1,6 @@
 $('.errors').html("")
 $('textarea').css('border', '1px solid black')
+
 <% if @message.errors.present? %>
 
   <% @message.errors.full_messages.each do |error| %>
@@ -8,20 +9,14 @@ $('textarea').css('border', '1px solid black')
   <% end %>
 
 <% else %>
-$('#messages').html("<%= escape_javascript(render partial: 'messages', locals: { messages: Message.all } ) %>")
-if (!isMobile()) {
-  ion.sound.play("urino");
-}
+  $('#messages').html("<%= escape_javascript(render partial: 'messages', locals: { messages: Message.all } ) %>")
+  $('textarea').val("")
 
-$('textarea').val("")
-
-var checkExist = setInterval(function() {
-   if ($('#messages').length) {
-      console.log("Exists!");
-      clearInterval(checkExist);
-      andareGiu()
-   }
-}, 100);
-
+  var checkExist = setInterval(function() {
+     if ($('#messages').length) {
+        clearInterval(checkExist);
+        andareGiu()
+     }
+  }, 100);
 <% end %>
 
