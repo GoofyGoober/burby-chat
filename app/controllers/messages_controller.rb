@@ -33,7 +33,7 @@ class MessagesController < ApplicationController
 
   private
   def set_user
-    @user = User.find(session[:user]["id"])
+    @user = User.find(session[:user]["id"]) if session[:user].present?
   end
     # Use callbacks to share common setup or constraints between actions.
     def set_message
